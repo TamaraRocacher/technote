@@ -1,0 +1,65 @@
+body{
+  background-color:#303F9F;
+  margin: 0px;
+  padding: 0px;
+
+}
+h3{
+    display: block;
+    margin: 0;
+    background-color: #303F9F;
+    color: white;
+    text-align:center;
+    padding: 10px;
+}
+header{
+  color: white;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+#logo{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+nav{
+  color: white;
+}
+#menu{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+nav ul{
+  list-style-type: none;
+  display: flex;
+}
+nav li{
+  margin-right: 15px;
+}
+.search{
+
+}
+#fenetre{
+  border: 2px solid  #f0f0f0;
+  background-color:  #f0f0f0;
+  margin: 0px;
+  padding: 0px;
+}
+article{
+
+}
+.note{
+  background-color: white;
+  border:2px solid black;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+}
+footer{
+  background-color: white;
+  padding: 0px;
+  margin: 0px;
+}
