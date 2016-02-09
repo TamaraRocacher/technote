@@ -3,9 +3,9 @@
   <h1>TechNote</h1>
   <nav class="right">
   	  <ul>
-  	    <li >admin</li>
-  	    <li >mon compte</li>
-        <li >déco</li>
+  	    <li ><button>admin</button></li>
+  	    <li ><button>mon compte</button></li>
+        <li ><button>déco</button></li>
   	  </ul>
   	</nav>
 </header>
