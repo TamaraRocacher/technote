@@ -1,5 +1,5 @@
 body{
-  background-color: #D7D7D7;
+  background-color: #D7DFD7;
   margin: 0px;
   padding-bottom: 0px;
   padding-top: 0px;
@@ -20,7 +20,7 @@ header{
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-
+  border: 1px solid #005D4B;
 }
 #logo{
     display: flex;
@@ -28,6 +28,18 @@ header{
     align-items: baseline;
     width: 3.5%;
     height: 3.5%;
+    margin-top:-2px;
+    margin-left:18px;
+    border-radius: 3px;
+}
+h1{
+  Width: 10%;
+  margin-left: 10%;
+}
+.logs {
+  width:25px;
+  height:25px;
+  padding-right: 15px;
 }
 nav{
   color: white;
@@ -73,18 +85,20 @@ button{
   top: 80px;
   right: 20px;
 }
-#rech{
-  margin-right: 35%;
 
-}
 #boutonF{
-  box-shadow: 1px 1px 3px rgba(255, 0, 0, 0.12), 0 1px 2px rgba(255, 0, 0, 0.24);
+  position: absolute;
+  left: -55px;
+  top: 47px;
+  /*box-shadow: 1px 1px 3px rgba(255, 0, 0, 0.12), 0 1px 2px rgba(255, 0, 0, 0.24);*/
   padding-bottom: 5px;
   padding-top: 5px;
   margin-bottom: 5px;
+
 }
 #boutonF:hover{
-  box-shadow: 10px 10px 20px rgba(255, 0, 0, 0.39), 0 6px 6px rgba(255, 0, 0, 0.33);
+  left: 0;
+  /*box-shadow: 10px 10px 20px rgba(255, 0, 0, 0.39), 0 6px 6px rgba(255, 0, 0, 0.33);*/
   transition-timing-function:ease-in-out;
   transition-duration: 0.4s;
   transition-property: all;
@@ -103,27 +117,51 @@ nav li{
 }
 .right li{
   color: black;
-  background-color:  #E0E0E0;
-  border: 0.5px solid  #E0E0E0;
+  /*background-color:  #E0E0E0;
+  border: 0.5px solid  #E0E0E0;*/
+}
+#rech{
+  display:flex;
+  margin-left: 37.5%;
+  width:25%;
+  /*border: 1px solid black;*/
+}
+/*#rech:hover{
+  margin-left: 37.5%;
+  width:25%;
+}
+#rech:focus{
+  margin-left: 37.5%;
+  width:25%;
+  border: 1px solid black;
+}*/
+.loupe{
+
+  width:15px;
+  height:15px;
+  vertical-align: text-bottom;
 }
 .search{
-  width: 400px;
-  margin-top: 10px;
+
   border-radius: 8px;
-  opacity:0.5;
+  opacity:0;
 }
 .search:hover{
+  width: 90%;
   transition-timing-function:ease-out;
   transition-duration: 0.7s;
   transition-property: opacity;
-  opacity: 1;
+  opacity: 0.5;
 }
 .search:focus{
+  width: 90%;
+
   opacity: 1;
 }
+
 #fenetre{
 
-  background-color:  #E0E0E0;
+  background-color:  #D7DFD7;
   margin: 0px;
   padding: 20px 0px 0px 0px;
 }
@@ -160,6 +198,7 @@ h3{
     color: white;
     text-align:center;
     padding: 10px;
+    border-radius: 4px 4px 0 0;
 }
 footer{
   background-color: white;
