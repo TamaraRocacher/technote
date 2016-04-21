@@ -1,3 +1,3 @@
 <footer>
-  <p>propulsé par Meryll et Tam</p>
+  <p>Propulsé par Meryll et Tamara.</p>
 </footer>

@@ -1,5 +1,5 @@
 <header>
-  <img id="logo" src="../img/logoTN.png" />
+  <a id="logo" href="../../index.php" ><img src="../img/logoTN.png" border=0 /> </a>
   <h1>TechNote</h1>
   <nav class="right">
   	  <ul>
