@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -11,31 +13,19 @@
 
 <?php include("template/header.php"); ?>
 <?php include("template/menu.php"); ?>
+<?php include("template/bdd.php"); ?>
 
 <div id="fenetre"> <!-- bordure et fond couleur diff -->
   <?php
-    $bdd = new PDO('mysql:host=localhost;dbname=Technote', 'root', 'theo030911');
-    $requete = $bdd->query('SELECT * FROM Users;');
-
-    while($data = $requete->fetch()) {
-      echo ' Bienvenue '.$data['pseudo'];
+    if(isset($_SESSION['pseudo']) AND strlen($_SESSION['pseudo']) > 2) {
+      echo 'Bonjour '.$_SESSION['pseudo'].'. Nous avons inséré un cookie bienveillant dans votre PC. Bon appétit.';
     }
-    $requete->closeCursor();
   ?>
   <section class="note">
     <h3>Titre a la con</h3>
-    <div class="wysiwyg">
-      <nav>
-        <ul>
-          <li>gras</li>
-          <li>code</li>
-          <li>autre</li>
-        </ul>
-      </nav>
-    </div>
     <article>
       <p>
-    Au cleal'c sur ajout note, apparait ici une technote vide, avec une barre d'outils
+    Au clic sur ajout note, apparait ici une technote vide, avec une barre d'outils
     wiziwig en vert degradé sous le titre .<br>
     options: gras, titre, code source
   </p>
