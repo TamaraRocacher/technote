@@ -25,8 +25,8 @@
      ?>
     <article>
       <form method="post" action="check-signin.php">
-        <input name="email" type="text" placeholder="Email"/><br>
-        <input name="passwd" type="password" placeholder="Password"/><br>
+        <input name="email" type="text" placeholder="Email" required /><br>
+        <input name="passwd" type="password" placeholder="Password" required /><br>
         <input type="submit" value="Connexion" />
       </form>
   </article>

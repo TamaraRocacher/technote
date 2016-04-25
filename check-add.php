@@ -11,8 +11,12 @@ else if(!isset($_SESSION['id'])) {
 }
 
 else {
+  function codeHigh($a) {
+    return $a[1].htmlspecialchars($a[2]).$a[3];
+  }
+
   $title = $_POST['title'];
-  $texte = $_POST['texte'];
+  $texte = preg_replace_callback('#(.*<pre>.*<code.*>)(.*)(</code></pre>.*)$#isU','codeHigh',$_POST['texte']);
   $keywords = preg_split("/[\s,]+/" , $_POST['keywords']);
   $userId = $_SESSION['id'];
 

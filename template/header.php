@@ -13,8 +13,11 @@
           else {
          ?>
          <li><p class="pseudonyme"><?php echo $_SESSION['pseudo']; ?></p></li>
-  	    <li><img class="logs" src="../img/tele.png" /></li>
-  	    <li><img class="logs" src="../img/config.png" /></li>
+         <?php
+          if(isset($_SESSION['status']) AND $_SESSION['status'] == 0) { ?>
+        <li><a href="admin/admin.php"><img class="logs" src="../img/tele.png" /></a></li>
+        <?php } ?>
+        <li><a href="account.php"><img class="logs" src="../img/config.png" /></a></li>
         <li><a href="../signout.php"><img class="logs" src="../img/deco.png" /></a></li>
         <?php
           }
