@@ -19,11 +19,6 @@
 
 <div id="fenetre"> <!-- bordure et fond couleur diff -->
   <?php
-    if(isset($_SESSION['pseudo']) AND strlen($_SESSION['pseudo']) > 2) {
-      echo 'Bonjour '.$_SESSION['pseudo'].'. Nous avons inséré un cookie bienveillant dans votre PC. Bon appétit.';
-    }
-  ?>
-  <?php
   $page = $_GET['page'];
   if($page < 0) {
     $referer = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : 'index.php';
@@ -34,7 +29,7 @@
 
   $debut = ($page) * $limite;
 
-  $requeteNote = $bdd->prepare('SELECT * FROM Notes LIMIT :limite OFFSET :debut;');
+  $requeteNote = $bdd->prepare('SELECT * FROM Notes ORDER BY timestamp(date) DESC LIMIT :limite OFFSET :debut;');
   $requeteNote->bindValue('limite', $limite, PDO::PARAM_INT);
   $requeteNote->bindValue('debut', $debut, PDO::PARAM_INT);
   $requeteNote->execute();
@@ -48,10 +43,34 @@
       $reqauthor = $bdd->prepare('SELECT pseudo FROM Users WHERE id=?;');
       $reqauthor->execute(array($data['user_id']));
       if($author = $reqauthor->fetch()) {
+        ?><span><?php
         echo ' par '.$author['pseudo'].' le '.$date->format('d/m/Y');
+
       }
 
-      ?></h3>
+      ?></span></h3>
+      <h6>Keywords:
+        <?php
+          $reqKeyword = $bdd->prepare('SELECT * FROM KeywordN WHERE note_id=?;');
+          $reqKeyword->execute(array($data['note_id']));
+          $taille = 0;
+
+          if($keyw = $reqKeyword->fetch()) {
+            $taille += strlen($keyw['texte']);
+            echo $keyw['texte'];
+          }
+          while($keyw = $reqKeyword->fetch()) {
+            $taille += strlen($keyw['texte']);
+            if($taille > 80) {
+              echo ', ...';
+              break;
+            }
+            echo ', '.$keyw['texte'];
+          }
+
+          $reqKeyword->closeCursor();
+         ?>
+      </h6>
       <article>
         <p>
           <?php

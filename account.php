@@ -39,6 +39,44 @@
            ?>
         </p>
       </article>
+      <article>
+        <p>
+          <?php
+            $req = $bdd->prepare('SELECT * FROM Questions WHERE user_id=? ORDER BY date DESC;');
+            $req->execute(array($_SESSION['id']));
+           ?>
+          <table>
+            <tr>
+              <th>Titre Question</th>
+              <th>Marquer comme résolu</th>
+              <th>Supprimer</th>
+            </tr><?php
+            while($data = $req->fetch()) {
+              ?>
+                    <tr <?php
+                      if($data['status'] = 1) {
+                        echo 'class="resolved"';
+                      }
+                      ?>>
+                      <td>
+                        <?php echo $data['title']; ?>
+                      </td>
+                      <td>
+                        <a class="delete" href="admin/resolved.php?id=<?php
+                        echo $data['question_id']; ?>">+</a>
+                      </td>
+                      <td>
+                        <a class="delete" href="admin/deletePost.php?id=<?php
+                        echo $data['question_id']; ?>">+</a>
+                      </td>
+                    </tr>
+                    <?php
+                    }
+                    $req->closeCursor();
+                    ?>
+          </table>
+        </p>
+      </article>
     </section>
 
 

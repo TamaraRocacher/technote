@@ -32,9 +32,11 @@ else {
     foreach($keywords as $key) {
       $req3->execute(array($key, $noteId));
     }
+    $req3->closeCursor();
+    $req1->closeCursor();
   }
   else {
-    $req1 = $bdd->prepare("INSERT INTO Question(title, texte, user_id, status, date) VALUES (?, ?, ?, 0, NOW());");
+    $req1 = $bdd->prepare("INSERT INTO Questions(title, texte, user_id, status, date) VALUES (?, ?, ?, 0, NOW());");
     $req1->execute(array($title, $texte, $userId));
 
 
@@ -46,9 +48,14 @@ else {
     foreach($keywords as $key) {
       $req3->execute(array($key, $questionId));
     }
-  }
-  header('Location: index.php');
 
+    $req3->closeCursor();
+    $req1->closeCursor();
+
+    header('Location: question.php');
+  }
+
+  header('Location: index.php');
 }
 
 

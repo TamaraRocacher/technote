@@ -17,11 +17,6 @@
 
 <div id="fenetre"> <!-- bordure et fond couleur diff -->
   <?php
-    if(isset($_SESSION['pseudo']) AND strlen($_SESSION['pseudo']) > 2) {
-      echo 'Bonjour '.$_SESSION['pseudo'].'. Nous avons inséré un cookie bienveillant dans votre PC. Bon appétit.';
-    }
-  ?>
-  <?php
   if($_SESSION['status']!=0) { //On redirige les non admin de la page
     header('Location: index.php');
   }
