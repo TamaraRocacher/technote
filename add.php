@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#005D4B">
   <link rel="stylesheet" href="css/style.css" />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 

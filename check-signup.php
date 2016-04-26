@@ -2,6 +2,8 @@
 session_start();
 
 include("template/bdd.php");
+include("admin/mail.php");
+
 
 if(empty($_POST['email']) || empty($_POST['passwd']) || empty($_POST['pseudo']))
 {
@@ -35,6 +37,11 @@ else {
   $_SESSION['pseudo'] = $pseudo;
   $_SESSION['status'] = 1;
 
+  //sendMail($pseudo,$mail);
+
+
   header('Location: index.php');
 }
+
+
 ?>

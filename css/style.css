@@ -1,3 +1,60 @@
+@media all and (max-width:800px) and (min-width:0px) {
+  .note, .question {
+    width:97% !important;
+    margin: auto !important;
+    font-family: monofur, sans-serif;
+  }
+  h1 {
+    position: absolute !important;
+    top:15px !important;
+    left:100px !important;
+    width:32% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  .pseudonyme {
+    display:none !important;
+  }
+  .ajout{
+    position:absolute;
+    right:10px !important;
+    top:60px !important;
+  }
+  #boutonF{
+    position:absolute;
+    top:52px !important;
+    left: 25px !important;
+    height: 35px;
+    width: 35px;
+  }
+  .logs {
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-right: 2px !important;
+  }
+  .right ul {
+    padding-right: 10px !important;
+  }
+
+  pre {
+    margin-left: 17px !important;
+    margin-right: 17px !important;
+  }
+
+}
+
+@font-face {
+font-family: 'monofur';
+src: url('monof55.ttf') format('truetype');
+font-weight: normal;
+font-style: normal;
+}
+
+.note, .question {
+  font-family: 'Titillium Web';
+  font-size: 1.1em;
+}
+
 body{
   background-color: #D7DFD7;
   margin: 0px;
@@ -148,7 +205,11 @@ pre {
   margin-right: 60px;
 }
 code {
-  border: 1px solid black;
+  border-radius: 3px;
+  border: 3px groove rgb(110,150,175);
+  border-style:dashed;
+  font-family: monofur;
+  font-size: 0.9em;
 }
 
 .ajout{
@@ -166,11 +227,14 @@ code {
   height: 50px;
   outline:none;
   cursor:pointer;
+  transition-timing-function:ease-in-out;
+  transition-duration: 0.2s;
+  transition-property: all;
 }
 .ajout:hover{
   box-shadow: 10px 10px 20px rgba(255, 0, 0, 0.39), 0 6px 6px rgba(255, 0, 0, 0.33);
   transition-timing-function:ease-in-out;
-  transition-duration: 0.4s;
+  transition-duration: 0.2s;
   transition-property: all;
   font-size: 3.5em;
   width: 60px;
