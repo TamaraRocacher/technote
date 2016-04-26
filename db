@@ -1,0 +1,75 @@
+CREATE TABLE `Users` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `email` varchar(40) NOT NULL,
+ `password` varchar(50) NOT NULL,
+ `pseudo` varchar(50) NOT NULL,
+ `status` int(11) NOT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Notes` (
+  `note_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `texte` text NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`note_id`),
+  KEY `fk_notes_1` (`user_id`),
+  CONSTRAINT `fk_notes_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Questions` (
+  `question_id` int(11) NOT NULL AUTO_INCREMENT,
+  `title` varchar(100) NOT NULL,
+  `texte` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`question_id`),
+  KEY `fk_questions_1` (`user_id`),
+  CONSTRAINT `fk_questions_1` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Comments` (
+  `comment_id` int(11) NOT NULL AUTO_INCREMENT,
+  `texte` text NOT NULL,
+  `note_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`comment_id`),
+  KEY `fk_comments_1` (`note_id`),
+  KEY `fk_comments_2` (`user_id`),
+  CONSTRAINT `fk_comments_1` FOREIGN KEY (`note_id`) REFERENCES `Notes` (`note_id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_comments_2` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1
+
+CREATE TABLE `Answers` (
+  `answer_id` int(11) NOT NULL AUTO_INCREMENT,
+  `texte` text NOT NULL,
+  `question_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`answer_id`),
+  KEY `fk_answers_1` (`question_id`),
+  KEY `fk_answers_2` (`user_id`),
+  CONSTRAINT `fk_answers_1` FOREIGN KEY (`question_id`) REFERENCES `Questions` (`question_id`) ON DELETE CASCADE,
+  CONSTRAINT `fk_answers_2` FOREIGN KEY (`user_id`) REFERENCES `Users` (`id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1
+
+CREATE TABLE `KeywordN` (
+  `keyn_id` int(11) NOT NULL AUTO_INCREMENT,
+  `texte` varchar(15) NOT NULL,
+  `note_id` int(11) NOT NULL,
+  PRIMARY KEY (`keyn_id`),
+  KEY `fk_note_id` (`note_id`),
+  CONSTRAINT `fk_note_id` FOREIGN KEY (`note_id`) REFERENCES `Notes` (`note_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=67 DEFAULT CHARSET=latin1
+
+CREATE TABLE `KeywordQ` (
+  `keyq_id` int(11) NOT NULL AUTO_INCREMENT,
+  `texte` varchar(15) NOT NULL,
+  `question_id` int(11) NOT NULL,
+  PRIMARY KEY (`keyq_id`),
+  KEY `fk_keywq_1` (`question_id`),
+  CONSTRAINT `fk_keywq_1` FOREIGN KEY (`question_id`) REFERENCES `Questions` (`question_id`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1
